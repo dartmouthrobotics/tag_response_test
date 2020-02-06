@@ -13,7 +13,7 @@ find_package(catkin REQUIRED COMPONENTS
   nodelet
 )
 catkin_package(
-  INCLUDE_DIRS include
+  #INCLUDE_DIRS include
   LIBRARIES tag_response_test 
   CATKIN_DEPENDS roscpp nodelet std_msgs image_transport
 )
