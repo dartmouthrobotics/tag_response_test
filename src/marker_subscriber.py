@@ -36,6 +36,10 @@ def marker_callback(marker_message):
 
 
 def shutdown_handler():
+    print "Average delay: {}".format(
+        sum([row.delay_seconds for row in collected_data]) / float(len(collected_data))
+    )
+
     with open(output_file, "w") as output_stream:
         output_stream.write(",".join(CsvRow._fields) + "\n")
 

@@ -7,7 +7,7 @@
   <arg name="fake_image"/>
 
   <node pkg="nodelet" type="nodelet" name="nodelet_manager" args="manager" output="screen" respawn="true">
-      <param name="num_worker_threads" value="2"/>
+      <param name="num_worker_threads" value="1"/>
   </node>
 
   <node pkg="nodelet" type="nodelet" name="fake_video_stream" output="screen" args="load tag_response_test/FakeVideoStreamNodelet nodelet_manager">
@@ -33,6 +33,6 @@
   <node pkg="tag_response_test" type="marker_subscriber.py" name="marker_subscriber" output="screen">
       <param name="ar_tag_topic" type="string" value="/bluerov_controller/ar_tag_detector"/>
       <param name="output_file" type="string" value="$(arg output_file)"/>
-      <param name="number_frames" type="int" value="1000"/>
+      <param name="number_frames" type="int" value="100"/>
   </node>
 </launch>
