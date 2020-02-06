@@ -3,6 +3,8 @@
 <launch>
   <!-- Bluerov robot transforms -->
   <include file="$(find bluerov)/launch/description.launch" />
+  <arg name="output_file"/>
+  <arg name="fake_image"/>
 
   <node pkg="nodelet" type="nodelet" name="nodelet_manager" args="manager" output="screen" respawn="true">
       <param name="num_worker_threads" value="2"/>
@@ -10,7 +12,7 @@
 
   <node pkg="nodelet" type="nodelet" name="fake_video_stream" output="screen" args="load tag_response_test/FakeVideoStreamNodelet nodelet_manager">
     <param name="publish_rate" type="int" value="30"/>
-    <param name="fake_video_image_path" type="string" value="$(find tag_response_test)/images/test_image.png"/>
+    <param name="fake_video_image_path" type="string" value="$(arg fake_image)"/>
     <rosparam command="load" file="$(find bluerov_controller)/param/camera_calibration_720_540_barbados_ocean.yaml"/>
   </node>
 
@@ -30,7 +32,7 @@
 
   <node pkg="tag_response_test" type="marker_subscriber.py" name="marker_subscriber" output="screen">
       <param name="ar_tag_topic" type="string" value="/bluerov_controller/ar_tag_detector"/>
-      <param name="output_file" type="string" value="$(find tag_response_test)/output_data/30_fps-one-tag-near:.csv"/>
-      <param name="number_samples" type="int" value="1000"/>
+      <param name="output_file" type="string" value="$(arg output_file)"/>
+      <param name="number_frames" type="int" value="1000"/>
   </node>
 </launch>
