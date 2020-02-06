@@ -1,0 +1,7 @@
+<library path="lib/libtag_response_test">
+  <class name="tag_response_test/FakeVideoStreamNodelet" type="fake_video_stream_nodelet::FakeVideoStreamNodelet" base_class_type="nodelet::Nodelet">
+    <description> 
+        Nodelet that publishes a single image at a given rate
+    </description>
+  </class>
+</library>
