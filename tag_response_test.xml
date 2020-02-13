@@ -4,4 +4,9 @@
         Nodelet that publishes a single image at a given rate
     </description>
   </class>
+  <class name="tag_response_test/MarkerSubscriberNodelet" type="fake_video_stream_nodelet::MarkerSubscriberNodelet" base_class_type="nodelet::Nodelet">
+    <description> 
+        Subscribes to marker messages and compares received time and sent time.
+    </description>
+  </class>
 </library>

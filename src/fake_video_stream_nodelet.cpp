@@ -129,6 +129,7 @@ public:
             msg->header.stamp = ros::Time::now();
             msg->header.seq = current_frame_number;
             msg->header.frame_id = "cam_0_optical_frame";
+            std::cout << "sent frame " << msg->header.seq << std::endl;
 
             image_publisher.publish(msg);
 

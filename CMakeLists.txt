@@ -11,11 +11,12 @@ find_package(catkin REQUIRED COMPONENTS
   image_transport
   cv_bridge
   nodelet
+  ar_track_alvar_msgs
 )
 catkin_package(
   #INCLUDE_DIRS include
   LIBRARIES tag_response_test 
-  CATKIN_DEPENDS roscpp nodelet std_msgs image_transport
+  CATKIN_DEPENDS roscpp nodelet std_msgs image_transport ar_track_alvar_msgs
 )
 
 include_directories(
@@ -25,6 +26,7 @@ include_directories(
 
 add_library(${PROJECT_NAME}
   src/fake_video_stream_nodelet.cpp
+  src/marker_subscriber_nodelet.cpp
   ${catkin_LIBRARIES}
   ${OpenCV_LIBS}
 )

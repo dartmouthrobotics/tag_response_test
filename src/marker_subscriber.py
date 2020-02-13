@@ -7,7 +7,7 @@ import collections
 CsvRow = collections.namedtuple("CsvRow", ["frame_number", "received_time", "sent_time", "delay_seconds", "number_markers"])
 
 collected_data = []
-output_file = ""
+output_file = "delay_data.csv"
 number_frames = 0
 
 number_frames_collected = 0
@@ -53,8 +53,6 @@ def main():
     rospy.init_node("publisher_node")
     rospy.loginfo("Starting data logger.")
     rospy.on_shutdown(shutdown_handler)
-
-    output_file = rospy.get_param("~output_file")
 
     marker_topic = rospy.get_param("~ar_tag_topic")
 
